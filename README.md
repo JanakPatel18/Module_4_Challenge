@@ -38,6 +38,7 @@ district_summary_df = pd.DataFrame(
 
 
 Format the "Total Students" to have the comma for a thousands separator.
+
 district_summary_df["Total Students"] = district_summary_df["Total Students"].map("{:,}".format)
 Format the "Total Budget" to have the comma for a thousands separator, a decimal separator and a "$".
 district_summary_df["Total Budget"] = district_summary_df["Total Budget"].map("${:,.2f}".format)
