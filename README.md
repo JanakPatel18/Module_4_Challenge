@@ -24,6 +24,7 @@ This was used to factor out the ninth graders’ math scores:
 This was used to get the district summary:
 
 Create a DataFrame
+
 district_summary_df = pd.DataFrame(
           [{"Total Schools": school_count, 
           "Total Students": student_count, 
@@ -48,6 +49,7 @@ district_summary_df["% Passing Reading"] = district_summary_df["% Passing Readin
 district_summary_df["% Overall Passing"] = district_summary_df["% Overall Passing"].map("{:.1f}".format)
 
 Display the data frame
+
 district_summary_df
 
 
