@@ -20,6 +20,36 @@ This was used to factor out the ninth graders’ math scores:
 	student_data_df.loc[(student_data_df["school_name"] == "Thomas High School") & (student_data_df["grade"] == "9th"),"math_score"] = np.nan
 
 	student_data_df
+	
+This was used to get the district summary:
+
+Create a DataFrame
+district_summary_df = pd.DataFrame(
+          [{"Total Schools": school_count, 
+          "Total Students": student_count, 
+          "Total Budget": total_budget,
+          "Average Math Score": average_math_score, 
+          "Average Reading Score": average_reading_score,
+          "% Passing Math": passing_math_percentage,
+         "% Passing Reading": passing_reading_percentage,
+        "% Overall Passing": overall_passing_percentage}])
+
+
+
+Format the "Total Students" to have the comma for a thousands separator.
+district_summary_df["Total Students"] = district_summary_df["Total Students"].map("{:,}".format)
+Format the "Total Budget" to have the comma for a thousands separator, a decimal separator and a "$".
+district_summary_df["Total Budget"] = district_summary_df["Total Budget"].map("${:,.2f}".format)
+Format the columns.
+district_summary_df["Average Math Score"] = district_summary_df["Average Math Score"].map("{:.1f}".format)
+district_summary_df["Average Reading Score"] = district_summary_df["Average Reading Score"].map("{:.1f}".format)
+district_summary_df["% Passing Math"] = district_summary_df["% Passing Math"].map("{:.1f}".format)
+district_summary_df["% Passing Reading"] = district_summary_df["% Passing Reading"].map("{:.1f}".format)
+district_summary_df["% Overall Passing"] = district_summary_df["% Overall Passing"].map("{:.1f}".format)
+
+Display the data frame
+district_summary_df
+
 
 
 ## Summary
